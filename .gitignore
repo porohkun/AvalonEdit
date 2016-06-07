@@ -4,5 +4,9 @@ bin/
 /Documentation/Help
 /packages/AvalonEdit
 /packages/AvalonEdit.Sample
+/packages/ICSharpCode.NRefactory.5.5.1
+/packages/Mono.Cecil.0.9.5.4
 /packages/NUnit.2.6.3
+/packages/NUnit.3.2.1
 /Documentation/IntelliSense
+/.vs/

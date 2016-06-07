@@ -207,10 +207,11 @@ namespace ICSharpCode.AvalonEdit.Highlighting
 					position = firstMatch.Index;
 					int ruleIndex = Array.IndexOf(matches, firstMatch);
 					if (firstMatch.Length == 0) {
-						throw new InvalidOperationException(
-							"A highlighting rule matched 0 characters, which would cause an endless loop.\n" +
-							"Change the highlighting definition so that the rule matches at least one character.\n" +
-							"Regex: " + rules[ruleIndex].Regex);
+                        break;
+						//throw new InvalidOperationException(
+						//	"A highlighting rule matched 0 characters, which would cause an endless loop.\n" +
+						//	"Change the highlighting definition so that the rule matches at least one character.\n" +
+						//	"Regex: " + rules[ruleIndex].Regex);
 					}
 					PushColor(rules[ruleIndex].Color);
 					position = firstMatch.Index + firstMatch.Length;
@@ -304,7 +305,7 @@ namespace ICSharpCode.AvalonEdit.Highlighting
 		{
 			Match min = null;
 			foreach (Match v in arr) {
-				if (v.Success && (min == null || v.Index < min.Index))
+				if (v.Success && (min == null || v.Index < min.Index) && v.Length>0)
 					min = v;
 			}
 			if (endSpanMatch != null && endSpanMatch.Success && (min == null || endSpanMatch.Index < min.Index))
